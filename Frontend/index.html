@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DARAZ — Modern Store</title>
+  <link rel="stylesheet" href="CSS/base.css" />
+  <link rel="stylesheet" href="CSS/index.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">DARAZ</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Shop</a>
+      <a href="cart.html">Cart <span class="cart-count" id="nav-cart-count">0</span></a>
+      <a href="admin.html">Admin</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-sub">New Collection 2026</p>
+      <h1>Dress<br><em>Beyond</em><br>Ordinary.</h1>
+      <a href="#products" class="btn-primary">Shop Now</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-circle"></div>
+      <div class="hero-badge">FREE SHIPPING OVER ₹999</div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="men">Men</button>
+        <button class="filter-btn" data-cat="women">Women</button>
+        <button class="filter-btn" data-cat="accessories">Accessories</button>
+      </div>
+    </div>
+    <div class="products-grid" id="products-grid"></div>
+  </section>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer class="footer">
+    <p>© 2026 DARAZ. All rights reserved.</p>
+    <p>Built with ❤ — HTML, CSS & JavaScript</p>
+  </footer>
+
+  <script src="../Backend/backend.js"></script>
+  <script src="script/main.js"></script>
+</body>
+
+</html>

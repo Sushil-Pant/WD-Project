@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart — DARAZ</title>
+  <link rel="stylesheet" href="CSS/base.css" />
+  <link rel="stylesheet" href="CSS/cart.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">DARAZ</a>
+    <div class="nav-links">
+      <a href="index.html">Shop</a>
+      <a href="cart.html" class="active">Cart <span class="cart-count" id="nav-cart-count">0</span></a>
+      <a href="admin.html">Admin</a>
+    </div>
+  </nav>
+
+  <section class="page-section">
+    <h2 class="page-title">Your Cart</h2>
+    <div class="cart-layout">
+      <div class="cart-items" id="cart-items">
+        <p class="empty-msg" id="empty-msg">Your cart is empty. <a href="index.html">Continue shopping →</a></p>
+      </div>
+      <div class="cart-summary" id="cart-summary" style="display:none">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="shipping">₹0</span></div>
+        <div class="summary-row total-row"><span>Total</span><span id="total">₹0</span></div>
+        <button class="btn-primary wide" onclick="checkout()">Place Order</button>
+        <a href="index.html" class="continue-link">← Continue Shopping</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="../Backend/backend.js"></script>
+  <script src="script/cart.js"></script>
+</body>
+
+</html>
