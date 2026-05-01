@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DARAZ — Modern Store</title>
+  <meta name="description" content="Shop the latest fashion collections at DARAZ." />
   <link rel="stylesheet" href="CSS/base.css" />
   <link rel="stylesheet" href="CSS/index.css" />
   <link
@@ -17,23 +18,34 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <a href="index.html" class="logo">DARAZ</a>
+    <div class="nav-search">
+      <span class="nav-search-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg></span>
+      <input type="text" id="nav-search-input" placeholder="Search products…" autocomplete="off" />
+      <div class="search-dropdown" id="search-dropdown"></div>
+    </div>
     <div class="nav-links">
       <a href="index.html" class="active">Shop</a>
       <a href="cart.html">Cart <span class="cart-count" id="nav-cart-count">0</span></a>
+      <a href="orders.html">My Orders</a>
       <a href="admin.html">Admin</a>
+      <a href="login.html" id="nav-auth-btn">Login</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <p class="hero-sub">New Collection 2026</p>
-      <h1>Dress<br><em>Beyond</em><br>Ordinary.</h1>
+      <p class="hero-sub">Authentic Nepali Collection 2026</p>
+      <h1>Crafted<br><em>in the</em><br>Himalayas.</h1>
       <a href="#products" class="btn-primary">Shop Now</a>
     </div>
     <div class="hero-visual">
       <div class="hero-circle"></div>
-      <div class="hero-badge">FREE SHIPPING OVER ₹999</div>
+      <div class="hero-badge">🏔️ FREE SHIPPING OVER ₹999</div>
     </div>
   </section>
 
@@ -56,10 +68,10 @@
 
   <footer class="footer">
     <p>© 2026 DARAZ. All rights reserved.</p>
-    <p>Built with ❤ — HTML, CSS & JavaScript</p>
+    <p>Built By Sushil Pant</p>
   </footer>
 
-  <script src="../Backend/backend.js"></script>
+  <script src="script/backend.js"></script>
   <script src="script/main.js"></script>
 </body>
 

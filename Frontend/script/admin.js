@@ -23,12 +23,13 @@ function renderOrdersTable() {
   tbody.innerHTML = orders.map(o => `
     <tr>
       <td>${o.id}</td>
+      <td><strong>${o.customerName || 'Guest'}</strong><br><small style="color:var(--text-muted)">${o.customerEmail || ''}</small></td>
       <td>${o.items.map(i => `${i.name} ×${i.qty}`).join(', ')}</td>
       <td>₹${o.total.toLocaleString('en-IN')}</td>
       <td>${o.date}</td>
       <td><span class="status-pill confirmed">${o.status}</span></td>
     </tr>
-  `).join('') || '<tr><td colspan="5">No orders yet.</td></tr>';
+  `).join('') || '<tr><td colspan="6">No orders yet.</td></tr>';
 }
 
 function updateStats() {
@@ -99,6 +100,11 @@ function resetForm() {
   document.querySelector('.admin-form-card h3').textContent = 'Add / Edit Product';
 }
 
-renderAdminTable();
-renderOrdersTable();
-updateStats();
+window.addEventListener('DOMContentLoaded', () => {
+  updateNavCartCount();
+  updateNavAuthButton();
+  initSearch();
+  renderAdminTable();
+  renderOrdersTable();
+  updateStats();
+});

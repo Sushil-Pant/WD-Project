@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — DARAZ</title>
+  <meta name="description" content="Login to your DARAZ account to shop our latest collections." />
+  <link rel="stylesheet" href="CSS/base.css" />
+  <link rel="stylesheet" href="CSS/login.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">DARAZ</a>
+    <div class="nav-links">
+      <a href="index.html">Shop</a>
+      <a href="cart.html">Cart <span class="cart-count" id="nav-cart-count">0</span></a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html" class="active" id="nav-auth-btn">Login</a>
+    </div>
+  </nav>
+
+  <!-- LOGIN SECTION -->
+  <section class="login-section">
+    <div class="login-card">
+      <div class="login-header">
+        <span class="login-badge">MEMBER ACCESS</span>
+        <h1>Welcome Back</h1>
+        <p class="login-sub">Login to shop the latest drops & manage your orders.</p>
+      </div>
+
+      <form id="login-form" class="login-form" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="login-password" placeholder="••••••••" required autocomplete="current-password" />
+            <button type="button" class="toggle-pw" onclick="togglePassword()" id="toggle-pw-btn" title="Show/hide password">
+              <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="login-error" class="login-error" style="display:none;"></div>
+        <button type="submit" class="btn-primary wide" id="login-btn">Login</button>
+      </form>
+
+      <div class="login-divider"><span>or</span></div>
+
+      <p class="register-hint">
+        Don't have an account?
+        <a href="#" onclick="quickRegister(event)">Create one instantly →</a>
+      </p>
+
+      <p class="demo-hint">
+        <strong>Demo:</strong> Use any email &amp; any password (min 4 chars) to login.
+      </p>
+    </div>
+
+    <!-- decorative circles -->
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script/backend.js"></script>
+  <script src="script/login.js"></script>
+</body>
+
+</html>

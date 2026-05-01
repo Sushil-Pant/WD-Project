@@ -4,25 +4,29 @@ function renderCart() {
   const cart = DB.getCart();
   const container = document.getElementById('cart-items');
   const summary = document.getElementById('cart-summary');
-  const emptyMsg = document.getElementById('empty-msg');
+
+  // Show user greeting
+  const user = DB.getCurrentUser();
+  const titleEl = document.querySelector('.page-title');
+  if (titleEl && user) {
+    titleEl.innerHTML = `Your Cart <span style="font-size:0.9rem;font-weight:400;color:var(--text-muted);font-family:'DM Sans',sans-serif;letter-spacing:0;">— ${user.name}</span>`;
+  }
 
   if (!cart.length) {
-    emptyMsg.style.display = 'block';
+    container.innerHTML = '<p class="empty-msg" id="empty-msg">Your cart is empty. <a href="index.html">Continue shopping →</a></p>';
     summary.style.display = 'none';
-    container.innerHTML = '';
-    container.appendChild(emptyMsg);
     return;
   }
 
-  emptyMsg.style.display = 'none';
   summary.style.display = 'flex';
 
   container.innerHTML = cart.map(item => `
     <div class="cart-item" id="citem-${item.productId}">
       <img src="${item.image}" alt="${item.name}"
-        onerror="this.src='https://via.placeholder.com/100x120/1a1a1a/fff?text=IMG'" />
+        onerror="this.src='https://via.placeholder.com/100x120/1a1a1a/fff?text=IMG'"
+        onclick="window.location.href='product.html?id=${item.productId}'" style="cursor: pointer;" />
       <div class="cart-item-info">
-        <h4>${item.name}</h4>
+        <h4 onclick="window.location.href='product.html?id=${item.productId}'" style="cursor: pointer;">${item.name}</h4>
         <p class="cart-item-price">₹${item.price.toLocaleString('en-IN')} each</p>
         <div class="qty-controls">
           <button onclick="changeQty('${item.productId}', ${item.qty - 1})">−</button>
@@ -39,6 +43,7 @@ function renderCart() {
 
   updateSummary();
 }
+
 
 function updateSummary() {
   const subtotal = DB.getCartTotal();
@@ -58,7 +63,26 @@ function changeQty(productId, newQty) {
   }
   DB.updateCartQty(productId, newQty);
   updateNavCartCount();
-  renderCart();
+
+  // Update DOM directly instead of re-rendering entire cart to prevent blinking
+  const itemEl = document.getElementById(`citem-${productId}`);
+  if (itemEl) {
+    const qtySpan = itemEl.querySelector('.qty-controls span');
+    if (qtySpan) qtySpan.textContent = newQty;
+    
+    const btns = itemEl.querySelectorAll('.qty-controls button');
+    if (btns.length === 2) {
+      btns[0].setAttribute('onclick', `changeQty('${productId}', ${newQty - 1})`);
+      btns[1].setAttribute('onclick', `changeQty('${productId}', ${newQty + 1})`);
+    }
+
+    const totalSpan = itemEl.querySelector('.cart-item-total');
+    if (totalSpan && product) {
+      totalSpan.textContent = `₹${(product.price * newQty).toLocaleString('en-IN')}`;
+    }
+  }
+
+  updateSummary();
 }
 
 function removeItem(productId) {
@@ -69,9 +93,11 @@ function removeItem(productId) {
 }
 
 function checkout() {
+  const user = DB.getCurrentUser();
   const result = DB.placeOrder();
   if (result.success) {
-    showToast(`🎉 ${result.message}`, 'success');
+    const name = user ? user.name : 'there';
+    showToast(`🎉 Order placed, ${name}! ${result.order.id}`, 'success');
     updateNavCartCount();
     setTimeout(() => renderCart(), 500);
   } else {

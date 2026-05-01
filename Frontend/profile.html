@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile — DARAZ</title>
+  <link rel="stylesheet" href="CSS/base.css" />
+  <link rel="stylesheet" href="CSS/profile.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">DARAZ</a>
+    <div class="nav-search">
+      <span class="nav-search-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
+      <input type="text" id="nav-search-input" placeholder="Search products…" autocomplete="off" />
+      <div class="search-dropdown" id="search-dropdown"></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Shop</a>
+      <a href="cart.html">Cart <span class="cart-count" id="nav-cart-count">0</span></a>
+      <a href="orders.html">My Orders</a>
+      <a href="admin.html">Admin</a>
+      <a href="profile.html" class="active" id="nav-auth-btn">Profile</a>
+    </div>
+  </nav>
+
+  <section class="page-section">
+    <!-- PROFILE HEADER -->
+    <div class="profile-hero">
+      <div class="profile-avatar" id="profile-avatar">?</div>
+      <div class="profile-hero-info">
+        <h1 id="profile-display-name">Loading…</h1>
+        <p id="profile-display-email" class="profile-email"></p>
+        <div class="profile-stats" id="profile-stats"></div>
+      </div>
+    </div>
+
+    <div class="profile-grid">
+      <!-- EDIT PROFILE -->
+      <div class="profile-card">
+        <h3 class="card-heading">✏️ Edit Profile</h3>
+        <div class="form-group">
+          <label>Display Name</label>
+          <input type="text" id="edit-name" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label>Email (cannot change)</label>
+          <input type="email" id="edit-email" disabled />
+        </div>
+        <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+      </div>
+
+      <!-- CHANGE PASSWORD -->
+      <div class="profile-card">
+        <h3 class="card-heading">🔑 Change Password</h3>
+        <div class="form-group">
+          <label>Current Password</label>
+          <input type="password" id="old-pass" placeholder="••••••••" />
+        </div>
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" id="new-pass" placeholder="Min. 4 characters" />
+        </div>
+        <div class="form-group">
+          <label>Confirm New Password</label>
+          <input type="password" id="confirm-pass" placeholder="Repeat new password" />
+        </div>
+        <button class="btn-primary" onclick="changePassword()">Update Password</button>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="profile-card">
+        <h3 class="card-heading">🔗 Quick Links</h3>
+        <div class="quick-links">
+          <a href="orders.html" class="quick-link-item">
+            <span>📦</span><span>View My Orders</span>
+          </a>
+          <a href="cart.html" class="quick-link-item">
+            <span>🛒</span><span>Go to Cart</span>
+          </a>
+          <button class="quick-link-item danger-link" onclick="handleLogout()">
+            <span>🚪</span><span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+  <footer class="footer">
+    <p>© 2026 DARAZ. All rights reserved.</p>
+    <p>Built with ❤ — HTML, CSS &amp; JavaScript</p>
+  </footer>
+  <script src="script/backend.js"></script>
+  <script src="script/profile.js"></script>
+</body>
+</html>

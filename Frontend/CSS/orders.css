@@ -1,0 +1,90 @@
+/* ---- MY ORDERS PAGE ---- */
+.orders-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.order-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  animation: fadeUp 0.35s ease both;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.order-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+.order-id {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.order-date { font-size: 0.78rem; color: var(--text-muted); }
+
+.order-right { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.order-total {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+.status-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+.status-pill.confirmed { background: rgba(90,170,122,0.15); color: var(--success); border: 1px solid rgba(90,170,122,0.3); }
+.status-pill.shipped { background: rgba(200,169,110,0.12); color: var(--accent); border: 1px solid rgba(200,169,110,0.3); }
+.status-pill.pending { background: rgba(224,82,82,0.1); color: var(--danger); border: 1px solid rgba(224,82,82,0.25); }
+
+.order-card-body { padding: 1.2rem 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+
+/* Delivery address */
+.order-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--bg3);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+}
+.order-address-icon { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+.order-address-text strong { display: block; color: var(--text); font-size: 0.85rem; margin-bottom: 2px; }
+
+/* Items */
+.order-items { display: flex; flex-direction: column; gap: 0.7rem; }
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.order-item img {
+  width: 54px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--bg3);
+  flex-shrink: 0;
+}
+.order-item-info { flex: 1; }
+.order-item-name { font-size: 0.9rem; font-weight: 500; }
+.order-item-meta { font-size: 0.78rem; color: var(--text-muted); }
+.order-item-price { font-size: 0.9rem; color: var(--accent); font-weight: 600; flex-shrink: 0; }
+
+@media (max-width: 600px) {
+  .order-card-header { flex-direction: column; align-items: flex-start; }
+}
