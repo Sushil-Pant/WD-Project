@@ -1,5 +1,8 @@
 /* ---- PRODUCT DETAIL PAGE ---- */
-.loading-msg { color: var(--text-muted); padding: 3rem 0; }
+.loading-msg {
+  color: var(--text-muted);
+  padding: 3rem 0;
+}
 
 .product-detail {
   display: grid;
@@ -16,17 +19,23 @@
   background: var(--bg3);
   aspect-ratio: 4/5;
 }
+
 .pd-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
-.pd-image-wrap:hover img { transform: scale(1.04); }
+
+.pd-image-wrap:hover img {
+  transform: scale(1.04);
+}
+
 .pd-badge {
   position: absolute;
-  top: 14px; left: 14px;
-  background: rgba(0,0,0,0.7);
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(6px);
   color: var(--accent);
   font-size: 0.68rem;
@@ -35,12 +44,14 @@
   text-transform: uppercase;
   padding: 4px 12px;
   border-radius: 99px;
-  border: 1px solid rgba(200,169,110,0.3);
+  border: 1px solid rgba(200, 169, 110, 0.3);
 }
+
 .pd-low-stock {
   position: absolute;
-  bottom: 14px; left: 14px;
-  background: rgba(224,82,82,0.9);
+  bottom: 14px;
+  left: 14px;
+  background: rgba(224, 82, 82, 0.9);
   color: #fff;
   font-size: 0.72rem;
   font-weight: 600;
@@ -49,11 +60,30 @@
 }
 
 /* Info */
-.pd-info { display: flex; flex-direction: column; gap: 1.2rem; padding-top: 0.5rem; }
-.pd-crumb { font-size: 0.78rem; color: var(--text-muted); }
-.pd-crumb a { color: var(--text-muted); transition: color 0.2s; }
-.pd-crumb a:hover { color: var(--accent); }
-.pd-crumb span { margin: 0 0.4rem; }
+.pd-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.pd-crumb {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.pd-crumb a {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.pd-crumb a:hover {
+  color: var(--accent);
+}
+
+.pd-crumb span {
+  margin: 0 0.4rem;
+}
 
 .pd-name {
   font-family: 'Bebas Neue', sans-serif;
@@ -61,6 +91,7 @@
   letter-spacing: 0.04em;
   line-height: 1.05;
 }
+
 .pd-rating {
   display: flex;
   align-items: center;
@@ -68,16 +99,32 @@
   font-size: 0.85rem;
   color: var(--text-muted);
 }
-.pd-rating .stars { font-size: 1rem; }
+
+.pd-rating .stars {
+  font-size: 1rem;
+}
+
 .pd-price {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2.4rem;
   color: var(--accent);
   letter-spacing: 0.04em;
 }
-.pd-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
-.pd-stock { font-size: 0.82rem; color: var(--text-muted); }
-.pd-stock strong { color: var(--text); }
+
+.pd-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.pd-stock {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.pd-stock strong {
+  color: var(--text);
+}
 
 /* Qty Selector */
 .pd-qty-row {
@@ -86,7 +133,14 @@
   gap: 1.2rem;
   flex-wrap: wrap;
 }
-.pd-qty-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+
+.pd-qty-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
 .qty-selector {
   display: flex;
   align-items: center;
@@ -95,6 +149,7 @@
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
+
 .qty-selector button {
   background: none;
   border: none;
@@ -104,7 +159,11 @@
   font-size: 1.1rem;
   transition: background 0.2s;
 }
-.qty-selector button:hover { background: var(--border); }
+
+.qty-selector button:hover {
+  background: var(--border);
+}
+
 .qty-selector span {
   width: 42px;
   text-align: center;
@@ -118,7 +177,13 @@
   gap: 1rem;
   flex-wrap: wrap;
 }
-.pd-actions .btn-primary { flex: 1; min-width: 160px; text-align: center; }
+
+.pd-actions .btn-primary {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+}
+
 .btn-wishlist {
   background: transparent;
   border: 1px solid var(--border);
@@ -132,10 +197,12 @@
   justify-content: center;
   min-width: 52px;
 }
-.btn-wishlist:hover, .btn-wishlist.active {
+
+.btn-wishlist:hover,
+.btn-wishlist.active {
   border-color: #e05252;
   color: #e05252;
-  background: rgba(224,82,82,0.08);
+  background: rgba(224, 82, 82, 0.08);
 }
 
 /* Delivery info chip */
@@ -145,25 +212,30 @@
   gap: 0.6rem;
   font-size: 0.82rem;
   color: var(--success);
-  background: rgba(90,170,122,0.08);
-  border: 1px solid rgba(90,170,122,0.2);
+  background: rgba(90, 170, 122, 0.08);
+  border: 1px solid rgba(90, 170, 122, 0.2);
   border-radius: var(--radius-sm);
   padding: 0.6rem 1rem;
 }
 
 /* Related Section */
-.related-section { padding-top: 0; }
+.related-section {
+  padding-top: 0;
+}
+
 .section-label {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;
   letter-spacing: 0.04em;
   margin-bottom: 1.5rem;
 }
+
 .related-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.2rem;
 }
+
 .related-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -172,13 +244,45 @@
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
-.related-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: var(--bg3); }
-.related-info { padding: 0.8rem; }
-.related-info h4 { font-size: 0.88rem; font-weight: 500; margin-bottom: 0.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.related-info .related-price { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.related-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  background: var(--bg3);
+}
+
+.related-info {
+  padding: 0.8rem;
+}
+
+.related-info h4 {
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.related-info .related-price {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+}
 
 @media (max-width: 800px) {
-  .product-detail { grid-template-columns: 1fr; gap: 2rem; }
-  .pd-name { font-size: 2.2rem; }
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .pd-name {
+    font-size: 2.2rem;
+  }
 }

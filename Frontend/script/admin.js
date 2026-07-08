@@ -1,5 +1,20 @@
 // admin.js — Admin Panel
 
+function checkAdminPassword() {
+  const pwd = document.getElementById('admin-password').value;
+  if (pwd === 'admin123') {
+    document.getElementById('admin-login-overlay').style.display = 'none';
+    sessionStorage.setItem('daraz_admin_auth', 'true');
+  } else {
+    const err = document.getElementById('admin-error');
+    err.style.display = 'block';
+    // Shake animation
+    err.style.animation = 'none';
+    err.offsetHeight; // reflow
+    err.style.animation = 'shake 0.3s ease';
+  }
+}
+
 function renderAdminTable() {
   const products = DB.getProducts();
   const tbody = document.getElementById('admin-table-body');
@@ -101,6 +116,11 @@ function resetForm() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  // Check if already authenticated as admin in this session
+  if (sessionStorage.getItem('daraz_admin_auth') === 'true') {
+    document.getElementById('admin-login-overlay').style.display = 'none';
+  }
+
   updateNavCartCount();
   updateNavAuthButton();
   initSearch();

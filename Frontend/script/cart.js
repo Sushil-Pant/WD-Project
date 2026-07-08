@@ -69,7 +69,7 @@ function changeQty(productId, newQty) {
   if (itemEl) {
     const qtySpan = itemEl.querySelector('.qty-controls span');
     if (qtySpan) qtySpan.textContent = newQty;
-    
+
     const btns = itemEl.querySelectorAll('.qty-controls button');
     if (btns.length === 2) {
       btns[0].setAttribute('onclick', `changeQty('${productId}', ${newQty - 1})`);

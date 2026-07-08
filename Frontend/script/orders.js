@@ -28,7 +28,7 @@ function renderOrders() {
         <div class="order-card-header">
           <div class="order-meta">
             <div class="order-id">${o.id}</div>
-            <div class="order-date">📅 ${o.date}</div>
+            <div class="order-date"> ${o.date}</div>
           </div>
           <div class="order-right">
             <div class="order-total">₹${o.total.toLocaleString('en-IN')}</div>
